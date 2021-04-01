@@ -28,9 +28,35 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/css/bootstrap.min.css",
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "node_modules/morrisjs/morris.css",
+              "node_modules/c3-master/c3.min.css",
+              "node_modules/toast-master/css/jquery.toast.css",
+              "src/styles.css",
+              "src/assets/css/style.css",
+              "src/assets/css/pages/dashboard1.css",
+              "src/assets/css/colors/default.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/jquery.min.js",
+              "node_modules/bootstrap/js/popper.min.js",
+              "node_modules/bootstrap/js/bootstrap.min.js",
+              "node_modules/ps/perfect-scrollbar.jquery.min.js",
+              "src/assets/js/waves.js",
+              "src/assets/js/sidebarmenu.js",
+              "src/assets/js/custom.min.js",
+              "node_modules/d3/d3.min.js",
+              "node_modules/c3-master/c3.min.js",
+              "node_modules/raphael/raphael-min.js",
+              "node_modules/datatables/jquery.dataTables.min.js",
+              
+              "node_modules/toast-master/js/jquery.toast.js",
+              
+              "node_modules/styleswitcher/jQuery.style.switcher.js"
+            ]
           },
           "configurations": {
             "production": {

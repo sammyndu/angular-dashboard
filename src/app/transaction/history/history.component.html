@@ -1,0 +1,120 @@
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Transaction History</h3>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Reports</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Transactions</a></li>
+                <li class="breadcrumb-item active">History</li>
+            </ol>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header bg-info">
+                    <h4 class="m-b-0 text-white">Please enter your search criteria</h4>
+                </div>
+                <div class="card-body">
+                    <form action="#" #searchForm="ngForm" (ngSubmit)="searchTransactions()">
+                        <div class="form-body">
+
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                                        <label>Terminal <span class="text-danger">*</span></label>
+                                        <select required [(ngModel)]="searchQuery.terminalId" name="terminalId" class="selectpicker" data-style="form-control btn-secondary">
+                                            <option *ngFor="let terminal of terminalsInfo" value="terminal.id" >{{ terminal.terminalAlias }}</option>
+                                        </select>
+                                        <!-- <input type="text" class="form-control"> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Start Date <span class="text-danger">*</span></label>
+                                        <input required name="dateFrom" [(ngModel)]="searchQuery.dateFrom" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                        <!-- <input type="text" class="form-control"> -->
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>End Date <span class="text-danger">*</span></label>
+                                        <input required name="dateTo" [(ngModel)]="searchQuery.dateTo" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                        <!-- <input type="text" class="form-control"> -->
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success"><i *ngIf="isLoading"  class="fas fa-spinner fa-spin" ></i> <i class="fa fa-check"></i> Search</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div>
+                            <h5 class="card-title">Transaction History</h5>
+                        </div>
+                    </div>
+                    <div class="table-responsive m-t-20 no-wrap">
+                        <table  class="table table-bordered table-striped" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                            <thead>
+                                <tr>
+                                    <th>Terminal</th>
+                                    <th>Transction Ref</th>
+                                    <th>Account Number</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Depositor</th>
+                                    <th>Status</th>
+                                    <th>Is Posted</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let transaction of transactions">
+                                    <td>{{ transaction.terminalAlias }}</td>
+                                    <td><a href="#" (click)="getTransaction($event, transaction.transactionRef)">{{ transaction.transactionRef }}</a></td>
+                                    <td>{{ transaction.destinationAccNo}}</td>
+                                    <td>{{ transaction.transactionType }}</td>
+                                    <td>{{ transaction.amount }}</td>
+                                    <td>{{ transaction.depositor }}</td>
+                                    <td>{{ transaction.transStatus }}</td>
+                                    <td>{{ transaction.posted }}</td>
+                                    <td>{{ covertToDateTime(transaction.transDateTime) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+
+    </div>
+
+</div>
+
+<app-transaction-detail [transactionDetail] = 'transactionDetail'></app-transaction-detail>
+

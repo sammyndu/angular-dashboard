@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { TokenInterceptor } from './shared/utils/token-interceptor';
+import { DataTablesModule } from 'angular-datatables';
+import { TransactionModule } from './transaction/transaction.module';
 
 @NgModule({
   declarations: [	
@@ -31,7 +33,9 @@ import { TokenInterceptor } from './shared/utils/token-interceptor';
     AppRoutingModule,
     AuthModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DataTablesModule,
+    TransactionModule
   ],
   providers: [
     {

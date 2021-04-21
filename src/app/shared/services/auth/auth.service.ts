@@ -13,19 +13,31 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private router: Router, private toastService: ToastService) { }
+  constructor(private http: HttpClient, private router: Router, private toastService: ToastService, private sessionService: SessionService) { }
 
   login(loginModel: Login): Observable<any> {
     return this.http.post(`${environment.apiUrl}/account/login`, loginModel).pipe(
       catchError((err : any) => {
         console.log(err);
-        this.toastService.showError(err.error, "Error");
+        this.toastService.showError(err.error.title || err.error, "Error");
         return throwError(err);
       }));
   }
 
+  getUserEmail() {
+    return this.sessionService.getEmail();
+  }
+
   redirectToLogin() {
     this.router.navigate(['/auth/login']);
+  }
+
+  isLoggedIn() {
+    return this.sessionService.isAuthenticated();
+  }
+
+  logOut() {
+    this.sessionService.logOut();
   }
 
 }

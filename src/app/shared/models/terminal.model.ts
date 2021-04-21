@@ -1,3 +1,6 @@
+import { CashUnitInfo } from "./cashunit-info.model";
+import { CIMStatus } from "./cim-status.model";
+
 export class Terminal {
     public id: number = 0;
     public currencyCode: string = "";
@@ -29,6 +32,6 @@ export class Terminal {
     public appVersion: string = "";
     public logOnToHost: boolean = false;
 
-        // public ICollection<CIMStatu> CIMStatus { get; set; }
-        // public ICollection<Models.CashUnitInfo> CashUnitInfoes { get; set; }
+    public cimStatus: CIMStatus[] = [];
+    public cashUnitInfoes: CashUnitInfo[] = [];
 }

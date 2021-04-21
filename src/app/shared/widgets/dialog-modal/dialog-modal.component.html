@@ -1,0 +1,28 @@
+ <!-- sample modal content -->
+ <div bsModal
+ #modal="bs-modal" id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" [ngClass]="{
+    'modal-lg': size == 'large',
+    'modal-sm': size == 'small',
+    'modal-md': size == 'medium'
+  }">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">
+                <i *ngIf="icon" [className]="icon"></i>
+                {{ title }}
+              </h4>
+              <button type="button" (click)="close()" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          </div>
+          <div class="modal-body">
+            <ng-content select="[xmodal-body]"></ng-content>
+          </div>
+          <div class="modal-footer">
+            <ng-content select="[xmodal-footer]"></ng-content>
+          </div>
+      </div>
+      <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

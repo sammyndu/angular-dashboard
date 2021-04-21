@@ -7,6 +7,7 @@ import jwt_decode from 'jwt-decode';
 export class SessionService {
 
   private readonly token = "JWT_TOKEN";
+  private readonly email = "JWT_EMAIL";
 
   constructor() { }
 
@@ -14,8 +15,21 @@ export class SessionService {
     localStorage.setItem(this.token, token);
   }
 
+  setEmail(email: string) {
+    localStorage.setItem(this.email, email);
+  }
+
   getToken(): string {
     return localStorage.getItem(this.token) ?? "";
+  }
+
+  getEmail(): string {
+    return localStorage.getItem(this.email) ?? "";
+  }
+
+  logOut() {
+    localStorage.removeItem(this.token);
+    localStorage.removeItem(this.email);
   }
 
   isAuthenticated():  boolean {

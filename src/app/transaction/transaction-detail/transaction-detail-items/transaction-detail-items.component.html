@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Transaction Amount'" [value]="transactionDetail.amount.toString()"></app-transaction-detail-item>
+  </div>
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Commision Amount'" [value]="'00.00'"></app-transaction-detail-item>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Transaction Charges'" [value]="'00.00'"></app-transaction-detail-item>
+  </div>
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Depositor'" [value]="transactionDetail.depositor"></app-transaction-detail-item>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Transaction Ref'" [value]="transactionDetail.transactionRef"></app-transaction-detail-item>
+  </div>
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Destination'" [value]="transactionDetail.destinationAccNo"></app-transaction-detail-item>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Transaction Type'" [value]="transactionDetail.transactionType"></app-transaction-detail-item>
+  </div>
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Narration'" [value]="transactionDetail.narration"></app-transaction-detail-item>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Status'" [value]="transactionDetail.transStatus"></app-transaction-detail-item>
+  </div>
+  <div class="col-md-6">
+    <app-transaction-detail-item [title]="'Payment Type'" [value]="transactionDetail.paymentType"></app-transaction-detail-item>
+  </div>
+</div>

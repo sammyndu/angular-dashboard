@@ -1,0 +1,43 @@
+<app-dialog-modal title="Transaction Details" size="large">
+  <div xmodal-body>
+    <app-transaction-detail-items [transactionDetail]="transactionDetail"></app-transaction-detail-items>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th scope="col">Note</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let denom of transactionDetail.denominationList">
+                  <td>{{ denom.template }}</td>
+                  <td>{{ denom.quantity }}</td>
+                  <td>{{ denom.total }}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div xmodal-footer class="dialog-modal-footer" style="width: 100%;">
+    <div class="d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn btn-outline-secondary float-left"
+        (click)="close()"
+      >
+       Cancel
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-primary float-right ml-2"
+        (click)="ok()"
+      >
+        Re-Process
+      </button>
+    </div>
+  </div>
+</app-dialog-modal>

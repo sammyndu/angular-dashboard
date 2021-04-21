@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Dashboard } from '../shared/models/dashboard.model';
+import { Terminal } from '../shared/models/terminal.model';
 import { DashboardService } from '../shared/services/dashboard.service';
 declare const c3: any;
 declare const Morris: any;
@@ -9,26 +11,36 @@ declare const $: any;
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   dashboardModel: Dashboard = new Dashboard;
+  terminals: Terminal[] = []
   onlineTerminalPercentage: number = 0;
   offlineTerminalPercentage: number = 0;
   //activeTerminalPercentage: number = 0;
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private dashboardService: DashboardService) {
 
   }
 
   ngOnInit() {
-    $('#myTable').DataTable();
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10
+    };
+    
     this.getEmptyTerminals();
     this.getDashboardData();
   }
 
   getDashboardData() {
+    //$('#myTable').DataTable();
     this.dashboardService.getDashboardData().subscribe((dashboard) => {
       this.dashboardModel = dashboard;
+      this.terminals =  this.dashboardModel.terminals;
+      this.dtTrigger.next();
       console.log(dashboard);
       console.log(dashboard.offlineTerminalCount);
       this.onlineTerminalPercentage = this.calculateTerminalPercentage(dashboard.onlineTerminalCount);
@@ -102,48 +114,70 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getCIMStatus(terminalId: number) {
-    const terminal = this.dashboardModel.terminals.find((terminal) => {
-      return terminal.id == terminalId;
-    });
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
+  }
+  checkCIMAcceptorStatus(value: string, terminal: Terminal | undefined) {
+    return terminal?.cimStatus.some((x) => x.cashAcceptorStatus.toLowerCase().includes(value))
+  }
 
-    // if (terminal.Ccim != null)
-    //                 {
-    //                     if (cim.CashAcceptorStatus.ToLower().Contains("online"))
-    //                     {
-    //                         <td class="bg-green">  Online</td>
-    //                     }
-    //                     else if (cim.CashAcceptorStatus.ToLower().Contains("offline"))
-    //                     {
-    //                         <td class="bg-blue"> Offline</td>
-    //                     }
-    //                     else if (cim.CashAcceptorStatus.ToLower().Contains("power"))
-    //                     {
-    //                         <td class="bg-red">Power Off</td>
-    //                     }
-    //                     else if (cim.CashAcceptorStatus.ToLower().Contains("present"))
-    //                     {
-    //                         <td class="bg-red"> No Device Present</td>
-    //                     }
-    //                     else if (cim.CashAcceptorStatus.ToLower().Contains("inope"))
-    //                     {
-    //                         <td class="bg-warning"> Inoperative </td>
-    //                     }
-    //                     else if (cim.CashAcceptorStatus.ToLower().Contains("busy"))
-    //                     {
-    //                         <td class="bg-light-blue-active"> Busy </td>
-    //                     }
-    //                     else if (cim.CashAcceptorStatus.ToLower().Contains("user"))
-    //                     {
-    //                         <td class="bg-warning"> User Interferance </td>
-    //                     }
+  checkCashUnitStatus(value: string, terminal: Terminal | undefined) {
+    return terminal?.cashUnitInfoes.some((x) => x.status.toLowerCase().includes(value))
+  }
 
-    //                 }
-    //                 else
-    //                 {
-    //                     <td class="bg-black"> Not Present </td>
-    //                 }
+  getCIMStatus(terminal: Terminal): string {
+    if(terminal?.cimStatus.length == 0) {
+      return "Not Present"
+    }
 
+    if(this.checkCIMAcceptorStatus('online', terminal)) {
+      return "Online";
+    } 
+    else if(this.checkCIMAcceptorStatus('offline', terminal)) {
+      return 'Offline';
+    }
+    else if(this.checkCIMAcceptorStatus('power', terminal)) {
+      return 'Power Off';
+    }
+    else if(this.checkCIMAcceptorStatus('present', terminal)) {
+      return 'No Device Present';
+    }
+    else if(this.checkCIMAcceptorStatus('inope', terminal)) {
+      return 'Inoperative';
+    }
+    else if(this.checkCIMAcceptorStatus('busy', terminal)) {
+      return 'Busy';
+    }
+    else if(this.checkCIMAcceptorStatus('user', terminal)) {
+      return 'User Interference';
+    } else {
+      return "Not Present"
+    }
+
+  }
+
+  getCashUnitInfoStatus(terminal: Terminal) {
+
+    if(terminal?.cashUnitInfoes.length == 0) {
+      return "Not Applicable"
+    }
+
+    if(this.checkCashUnitStatus('statcunearfull', terminal)) {
+      return "Near Full";
+    } 
+    else if(this.checkCashUnitStatus('statcufull', terminal)) {
+      return 'Full';
+    }
+    else if(this.checkCashUnitStatus('ok', terminal)) {
+      return 'OK';
+    }
+    else if(this.checkCashUnitStatus('statcuempty', terminal)) {
+      return 'Empty';
+    }
+    else {
+      return "Not Applicable"
+    }
   }
 }
  

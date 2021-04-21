@@ -1124,7 +1124,7 @@ sidebar navigation
     font-size: 12px;
     margin-bottom: 0px;
     padding: 30px 14px 14px 0px;
-    color: #bcc3d3;
+    color: #111;
     font-weight: 500;
 }
 
@@ -1154,7 +1154,7 @@ sidebar navigation
 
 .sidebar-nav>ul>li>a.active {
     font-weight: 400;
-    background: #242933;
+    /* background: #242933; */
     color: #26c6da;
     border-left: 3px solid #20aee3;
 }

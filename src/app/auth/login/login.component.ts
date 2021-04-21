@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.isLoggedIn();
   }
 
   login() {
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
       this.isLoading = false;
       console.log(response);
       this.sessionService.setToken(response.token);
+      this.sessionService.setEmail(response.email);
       if(this.sessionService.isAuthenticated()) {
         this.router.navigate(['']);
       }
@@ -35,6 +37,12 @@ export class LoginComponent implements OnInit {
       //this.toastService.showError(err,  "Error");
       this.isLoading = false;
     })
+  }
+
+  isLoggedIn() {
+    if(this.sessionService.isAuthenticated()) {
+      this.router.navigate(['']);
+    }
   }
 
 }

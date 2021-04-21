@@ -60,7 +60,7 @@
               <!-- Logo text --><span>
                <!-- dark Logo text -->
                <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-               <!-- Light Logo text -->    
+               <!-- Light Logo text -->
                <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
       </div>
       <!-- ============================================================== -->
@@ -95,44 +95,45 @@
               <!-- ============================================================== -->
               <!-- Messages -->
               <!-- ============================================================== -->
-         
+
               <!-- ============================================================== -->
               <!-- End Messages -->
               <!-- ============================================================== -->
               <!-- ============================================================== -->
               <!-- mega menu -->
               <!-- ============================================================== -->
-              
+
               <!-- ============================================================== -->
               <!-- End mega menu -->
               <!-- ============================================================== -->
               <!-- ============================================================== -->
               <!-- Language -->
               <!-- ============================================================== -->
-              
+
               <!-- ============================================================== -->
               <!-- Profile -->
               <!-- ============================================================== -->
               <li class="nav-item dropdown u-pro">
-                  <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down">Mark Sanders &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+                  <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/default_user.png" alt="user" class="" /> <span class="hidden-md-down">{{ userEmail }} &nbsp;<i class="fa fa-angle-down"></i></span> </a>
                   <div class="dropdown-menu dropdown-menu-right animated flipInY">
                       <ul class="dropdown-user">
                           <li>
                               <div class="dw-user-box">
-                                  <div class="u-img"><img src="../assets/images/users/1.jpg" alt="user"></div>
+                                  <div class="u-img"><img src="../assets/images/users/default_user.png" alt="user"></div>
                                   <div class="u-text">
-                                      <h4>Steave Jobs</h4>
-                                      <p class="text-muted">varun@gmail.com</p><a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                      <!-- <h4>Steave Jobs</h4> -->
+                                      <p class="text-muted">{{ userEmail }}</p> <!-- <a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>-->
+                                  </div>
                               </div>
                           </li>
-                          <li role="separator" class="divider"></li>
+                          <!-- <li role="separator" class="divider"></li>
                           <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
                           <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
                           <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                           <li role="separator" class="divider"></li>
                           <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                          <li role="separator" class="divider"></li> -->
+                          <li><a href="#" (click)="logOut()"><i class="fa fa-power-off"></i> Logout</a></li>
                       </ul>
                   </div>
               </li>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { DateTimeHelper } from 'src/app/shared/helpers/datetime-helper';
@@ -7,6 +7,7 @@ import { TransactionDetail } from 'src/app/shared/models/transaction-detail.mode
 import { TransactionSearchQuery } from 'src/app/shared/models/transaction-search-query.model';
 import { DialogModalComponent } from 'src/app/shared/widgets/dialog-modal/dialog-modal.component';
 import { TransactionService } from '../../shared/services/transaction.service'
+declare const $: any
 
 @Component({
   selector: 'app-history',
@@ -32,15 +33,16 @@ export class HistoryComponent implements OnInit, OnDestroy {
 
   openDetail = 0;
 
-  constructor(private transactionService: TransactionService) { }
+  constructor(private transactionService: TransactionService,private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10
     };
-    this.getTransactionHistory();
     this.getTerminals();
+    this.getTransactionHistory();
+    //$('.selectpicker').selectpicker();
   }
 
   getTransactionHistory() {
@@ -59,9 +61,17 @@ export class HistoryComponent implements OnInit, OnDestroy {
   getTerminals(){
     this.transactionService.getTerminals().subscribe(response => {
       console.log(response);
-      this.terminals = response.data;
+
+      console.log(response.data);
+      this.terminals = [...response.data];
+      //$('.selectpicker').selectpicker('refresh');
+      //this.cdr.detectChanges();
+
+      $('.selectpicker').trigger('change');
     })
   }
+
+  customTB(index: any, terminal: any) { return `${index}-${terminal.id}`; }
 
    getTransaction(e: any, transactionRef: string) {
      e.preventDefault();

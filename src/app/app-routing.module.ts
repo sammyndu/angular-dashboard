@@ -6,12 +6,12 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './shared/services/auth/auth-guard.service';
 
 const routes: Routes = [
-    { path: '', 
+    { path: '',
 
       component: HomeComponent,
-      
+
       canActivate: [AuthGuardService],
-      
+
       children: [
         { path: 'counter', component: CounterComponent },
         { path: 'fetch-data', component: FetchDataComponent }
@@ -19,13 +19,20 @@ const routes: Routes = [
     },
     {
         path: 'auth',
-        loadChildren: './auth/auth.module#AuthModule'
+        loadChildren: './auth/auth.module#AuthModule',
+        canActivate: [AuthGuardService],
     },
     {
       path: 'transaction',
-      loadChildren: './transaction/transaction.module#TransactionModule'
+      loadChildren: './transaction/transaction.module#TransactionModule',
+      canActivate: [AuthGuardService],
     },
-  
+    {
+      path: 'terminal',
+      loadChildren: './terminal/terminal.module#TerminalModule',
+      canActivate: [AuthGuardService],
+    },
+
 ];
 
 @NgModule({

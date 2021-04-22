@@ -16,9 +16,10 @@ import { SharedModule } from './shared/shared.module';
 import { TokenInterceptor } from './shared/utils/token-interceptor';
 import { DataTablesModule } from 'angular-datatables';
 import { TransactionModule } from './transaction/transaction.module';
+import { TerminalModule } from './terminal/terminal.module';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
@@ -35,7 +36,8 @@ import { TransactionModule } from './transaction/transaction.module';
     SharedModule,
     BrowserAnimationsModule,
     DataTablesModule,
-    TransactionModule
+    TransactionModule,
+    TerminalModule
   ],
   providers: [
     {

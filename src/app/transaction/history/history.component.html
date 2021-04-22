@@ -32,8 +32,8 @@
                                 <div class="col-md-6 ">
                                     <div class="form-group">
                                         <label>Terminal <span class="text-danger">*</span></label>
-                                        <select required [(ngModel)]="searchQuery.terminalId" name="terminalId" class="selectpicker" data-style="form-control btn-secondary">
-                                            <option *ngFor="let terminal of terminalsInfo" value="terminal.id" >{{ terminal.terminalAlias }}</option>
+                                        <select required [(ngModel)]="searchQuery.terminalId" name="terminalId" class="form-control">
+                                          <option *ngFor="let terminal of terminals trackBy: customTB" [value]="terminal.id" >{{ terminal.terminalAlias }}</option>
                                         </select>
                                         <!-- <input type="text" class="form-control"> -->
                                     </div>

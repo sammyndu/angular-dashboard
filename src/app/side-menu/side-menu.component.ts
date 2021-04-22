@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../shared/services/session.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
+  }
+
+  isLoggedIn(): boolean {
+    return this.sessionService.isAuthenticated();
   }
 
 }

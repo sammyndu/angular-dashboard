@@ -17,6 +17,10 @@ export class NavMenuComponent implements OnInit {
     this.userEmail = this.authService.getUserEmail();
   }
 
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
+
   collapse() {
     this.isExpanded = false;
   }

@@ -17,6 +17,7 @@ import { TokenInterceptor } from './shared/utils/token-interceptor';
 import { DataTablesModule } from 'angular-datatables';
 import { TransactionModule } from './transaction/transaction.module';
 import { TerminalModule } from './terminal/terminal.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { TerminalModule } from './terminal/terminal.module';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-      SideMenuComponent
+    SideMenuComponent
    ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,7 +38,8 @@ import { TerminalModule } from './terminal/terminal.module';
     BrowserAnimationsModule,
     DataTablesModule,
     TransactionModule,
-    TerminalModule
+    TerminalModule,
+    AdminModule
   ],
   providers: [
     {

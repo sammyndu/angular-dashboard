@@ -24,10 +24,9 @@
                     </div>
                 </div>
                 <div class="table-responsive m-t-20 no-wrap">
-                    <table  class="table table-bordered table-striped">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Transction Ref</th>
                                 <th>Alias</th>
                                 <th>Bank</th>
@@ -38,15 +37,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr >
-                              <td>#</td>
-                              <td>Transction Ref</td>
-                              <td>Alias</td>
-                              <td>Bank</td>
-                              <td>Ip Address</td>
-                              <td>Log On</td>
+                            <tr *ngFor="let terminal of terminals">
+                              <td>{{ terminal.terminalRef }}</td>
+                              <td>{{ terminal.terminalAlias }}</td>
+                              <td>{{ terminal.bank }}</td>
+                              <td>{{ terminal.ipAddress }}</td>
+                              <td>{{ terminal.logOnToHost }}</td>
                               <td>Merchants</td>
-                              <td>Date</td>
+                              <td>{{ terminal.dateCreated }}</td>
                             </tr>
                         </tbody>
                     </table>

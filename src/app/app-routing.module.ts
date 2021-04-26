@@ -11,16 +11,10 @@ const routes: Routes = [
       component: HomeComponent,
 
       canActivate: [AuthGuardService],
-
-      children: [
-        { path: 'counter', component: CounterComponent },
-        { path: 'fetch-data', component: FetchDataComponent }
-      ]
     },
     {
         path: 'auth',
         loadChildren: './auth/auth.module#AuthModule',
-        canActivate: [AuthGuardService],
     },
     {
       path: 'transaction',
@@ -30,6 +24,11 @@ const routes: Routes = [
     {
       path: 'terminal',
       loadChildren: './terminal/terminal.module#TerminalModule',
+      canActivate: [AuthGuardService],
+    },
+    {
+      path: 'admin',
+      loadChildren: './admin/admin.module#AdminModule',
       canActivate: [AuthGuardService],
     },
 

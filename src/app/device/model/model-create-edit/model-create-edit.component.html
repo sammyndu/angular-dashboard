@@ -1,0 +1,56 @@
+<app-dialog-modal [title]="title" size="medium">
+  <div xmodal-body>
+
+    <form class="m-t-10 row" #deviceModelForm="ngForm" (ngSubmit)="save()">
+      <div class="form-group col-md-12">
+          <label>Device Name </label>
+          <input type="text" name="deviceName" required #deviceName="ngModel" [(ngModel)]="model.deviceName" class="form-control form-control-line" >
+      </div>
+      <div class="form-group col-md-12">
+          <label for="example-email">Device Short Name </label>
+          <input type="text" name="shortName" required #shortName="ngModel"  [(ngModel)]="model.shortName"  class="form-control">
+      </div>
+      <div class="form-group col-md-12">
+          <label>Device Manufacturer</label>
+          <input name="manufacturer" #manufacturer="ngModel" required  [(ngModel)]="model.manufacturer" type="text" class="form-control">
+      </div>
+
+      <div class="form-group col-md-12">
+        <label>Device Manufacturer</label>
+        <select name="deviceType" #deviceType="ngModel" required [(ngModel)]="model.deviceTypeId" class="form-control">
+          <option *ngFor="let type of types" [value]="type.id">{{ type.type }}</option>
+        </select>
+    </div>
+
+      <div class="form-group col-md-12">
+        <label>Description</label>
+        <textarea class="form-control" rows="3" name="description" required #description="ngModel"  [(ngModel)]="model.description" placeholder="Description..."></textarea>
+    </div>
+
+
+      <!-- <div class="form-group">
+          <label>Description</label>
+          <textarea [disabled]="isEdit" class="form-control" rows="3" name="description" required #description="ngModel"  [(ngModel)]="acquirer.description" placeholder="Description..."></textarea>
+      </div> -->
+  </form>
+  </div>
+
+  <div xmodal-footer class="dialog-modal-footer" style="width: 100%;">
+    <div class="d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn btn-outline-secondary float-left"
+        (click)="close()"
+      >
+       Cancel
+      </button>
+      <button
+      (click)="deviceModelForm.ngSubmit.emit()"
+        type="button"
+        class="btn btn-outline-primary float-right ml-2"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</app-dialog-modal>

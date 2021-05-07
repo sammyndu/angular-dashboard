@@ -40,42 +40,29 @@
                           <ul aria-expanded="false" class="collapse">
                               <li><a [routerLink]="'/admin/users'">Users List</a></li>
                               <li><a [routerLink]="'/admin/roles'">Role List</a></li>
-                              <li><a href="ui-buttons.html">Permission List</a></li>
-                              <li><a href="ui-modals.html">System Audit</a></li>
+                              <li><a [routerLink]="'/admin/permissions'">Permission List</a></li>
+                              <li><a [routerLink]="'/admin/audits'">System Audit</a></li>
                           </ul>
                       </li>
                       <li> <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="icon-Windows-2"></i><span class="hide-menu">Devices</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="#" class="has-arrow">Components</a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="pages-login.html">List</a></li>
-                                    <li><a href="pages-login.html">Add</a></li>
-                                </ul>
+                            <li><a [routerLink]="'/device/components'">Components</a>
+
                             </li>
-                            <li><a class="has-arrow">Device Type</a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="pages-login.html">List</a></li>
-                                    <li><a href="pages-login.html">Add</a></li>
-                                </ul>
+                            <li><a [routerLink]="'/device/types'">Device Type</a>
+
                             </li>
-                            <li><a  class="has-arrow">Device Model</a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="pages-login.html">List</a></li>
-                                    <li><a href="pages-login.html">Add</a></li>
-                                </ul>
+                            <li><a [routerLink]="'/device/models'">Device Model</a>
+
                             </li>
                         </ul>
                     </li>
                     <li> <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="icon-Windows-2"></i><span class="hide-menu">Acquirer Mgt</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="widget-data.html">Acquirer List</a></li>
+                            <li><a [routerLink]="'/acquirer'">Acquirer List</a></li>
                         </ul>
                     </li>
-                    <li> <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="icon-Windows-2"></i><span class="hide-menu">Dispute Management</span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="pages-login.html">List</a></li>
-                            <li><a href="pages-login.html">Add</a></li>
-                        </ul>
+                    <li> <a [routerLink]="'/dispute'" class="waves-effect waves-dark" aria-expanded="false"><i class="icon-Windows-2"></i><span class="hide-menu">Dispute Management</span></a>
                     </li>
 
                   </ul>

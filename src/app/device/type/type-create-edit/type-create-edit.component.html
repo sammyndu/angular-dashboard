@@ -1,0 +1,41 @@
+<app-dialog-modal [title]="title" size="medium">
+  <div xmodal-body>
+
+    <form class=" m-t-10 row" #deviceTypeForm="ngForm" (ngSubmit)="save()">
+      <div class="form-group col-md-12">
+          <label>Type Name </label>
+          <input type="text" name="type" required #type="ngModel" [(ngModel)]="deviceType.type" class="form-control form-control-line" >
+      </div>
+
+      <div class="form-group col-md-12">
+        <label>Description</label>
+        <textarea class="form-control" rows="3" name="description" required #description="ngModel"  [(ngModel)]="deviceType.description" placeholder="Description..."></textarea>
+    </div>
+
+
+      <!-- <div class="form-group">
+          <label>Description</label>
+          <textarea [disabled]="isEdit" class="form-control" rows="3" name="description" required #description="ngModel"  [(ngModel)]="acquirer.description" placeholder="Description..."></textarea>
+      </div> -->
+  </form>
+  </div>
+
+  <div xmodal-footer class="dialog-modal-footer" style="width: 100%;">
+    <div class="d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn btn-outline-secondary float-left"
+        (click)="close()"
+      >
+       Cancel
+      </button>
+      <button
+      (click)="deviceTypeForm.ngSubmit.emit()"
+        type="button"
+        class="btn btn-outline-primary float-right ml-2"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</app-dialog-modal>

@@ -18,6 +18,11 @@ import { DataTablesModule } from 'angular-datatables';
 import { TransactionModule } from './transaction/transaction.module';
 import { TerminalModule } from './terminal/terminal.module';
 import { AdminModule } from './admin/admin.module';
+import { DeviceModule } from './device/device.module';
+import { AcquirerModule } from './acquirer/acquirer.module';
+import { DisputeModule } from './dispute/dispute.module';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,12 @@ import { AdminModule } from './admin/admin.module';
     DataTablesModule,
     TransactionModule,
     TerminalModule,
-    AdminModule
+    AdminModule,
+    DeviceModule,
+    AcquirerModule,
+    DisputeModule,
+    NgxSkeletonLoaderModule,
+    TooltipModule.forRoot()
   ],
   providers: [
     {

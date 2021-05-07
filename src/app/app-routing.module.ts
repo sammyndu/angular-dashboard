@@ -31,6 +31,21 @@ const routes: Routes = [
       loadChildren: './admin/admin.module#AdminModule',
       canActivate: [AuthGuardService],
     },
+    {
+      path: 'device',
+      loadChildren: './device/device.module#DeviceModule',
+      canActivate: [AuthGuardService],
+    },
+    {
+      path: 'acquirer',
+      loadChildren: './acquirer/acquirer.module#AcquirerModule',
+      canActivate: [AuthGuardService],
+    },
+    {
+      path: 'dispute',
+      loadChildren: './dispute/dispute.module#DisputeModule',
+      canActivate: [AuthGuardService],
+    },
 
 ];
 

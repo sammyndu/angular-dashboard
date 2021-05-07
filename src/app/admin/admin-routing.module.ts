@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from '../shared/services/auth/auth-guard.service';
+import { AuditListComponent } from './audit-list/audit-list.component';
+import { PermissionListComponent } from './permission-list/permission-list.component';
 import { RoleListComponent } from './roles/role-list/role-list.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 
@@ -12,6 +14,14 @@ const routes: Routes = [
   {
     path: "roles",
     component: RoleListComponent
+  },
+  {
+    path: "permissions",
+    component: PermissionListComponent
+  },
+  {
+    path: "audits",
+    component: AuditListComponent
   }
 ];
 

@@ -1,0 +1,31 @@
+<app-dialog-modal title="Device Model Detail" size="medium">
+  <div xmodal-body>
+
+     <app-model-view-item
+     [leftTitle]="'Device Model Name'"
+     [leftValue]="model.deviceName"
+     [rightTitle]="'Device Model Short Name'"
+     [rightValue]="model.shortName">
+    </app-model-view-item>
+
+    <app-model-view-item
+     [leftTitle]="'Device Model Manaufacturer'"
+     [leftValue]="model.manufacturer"
+     [rightTitle]="'Device Model Description'"
+     [rightValue]="model.description">
+    </app-model-view-item>
+
+    <app-model-view-item
+     [leftTitle]="'Device Model Type'"
+     [leftValue]="model.dateAdded"
+     [rightTitle]="'Device Model Date Created'"
+     [rightValue]="model.dateAdded">
+    </app-model-view-item>
+
+    <app-model-view-item
+     [leftTitle]="'Device Model Date Modified'"
+     [leftValue]="model.dateModified">
+    </app-model-view-item>
+
+  </div>
+</app-dialog-modal>

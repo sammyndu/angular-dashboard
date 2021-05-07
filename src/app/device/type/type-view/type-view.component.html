@@ -1,0 +1,18 @@
+<app-dialog-modal title="Device Type Detail" size="small">
+  <div xmodal-body>
+
+     <app-type-view-item
+     [leftTitle]="'Device Type Name'"
+     [leftValue]="type.type"
+     [rightTitle]="'Device TYpe Description'"
+     [rightValue]="type.description">
+    </app-type-view-item>
+
+
+    <app-type-view-item
+     [leftTitle]="'Device Type Date Created'"
+     [leftValue]="type.dateAdded">
+    </app-type-view-item>
+
+  </div>
+</app-dialog-modal>

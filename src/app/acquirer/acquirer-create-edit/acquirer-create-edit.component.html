@@ -1,0 +1,118 @@
+<app-dialog-modal [title]="title" size="large">
+  <div xmodal-body>
+
+    <form class=" m-t-10 row" #acquirerForm="ngForm" (ngSubmit)="save()">
+      <div class="form-group col-md-6">
+          <label>Acquirer Short Name </label>
+          <input [disabled]="isEdit" type="text" name="acquirerShortName" required #acquirerShortName="ngModel" [(ngModel)]="acquirer.acquirerShortName" class="form-control form-control-line" >
+      </div>
+      <div class="form-group col-md-6">
+          <label for="example-email">Acquirer Full Name </label>
+          <input [disabled]="isEdit" type="text" name="acquirerFullName" required #acquirerFullName="ngModel"  [(ngModel)]="acquirer.acquirerFullName"  class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+          <label>Acquirer Short Code</label>
+          <input [disabled]="isEdit" name="acquirerCode" #acquirerCode="ngModel" required  [(ngModel)]="acquirer.acquirerCode" type="text" class="form-control">
+      </div>
+
+    <div class="form-group col-md-6">
+        <label for="example-email">Contact First Name </label>
+        <input [disabled]="isEdit" type="text" name="contactFirstName" required #contactFirstName="ngModel"  [(ngModel)]="acquirer.contactFirstName"  class="form-control">
+    </div>
+    <div class="form-group col-md-6">
+        <label>Contact Last Name </label>
+        <input [disabled]="isEdit" name="contactLastName" #contactLastName="ngModel" required  [(ngModel)]="acquirer.contactLastName" type="text" class="form-control">
+    </div>
+
+      <div class="form-group col-md-6">
+        <label for="example-email">Contact First Name </label>
+        <input [disabled]="isEdit" type="text" name="contactFirstName" required #contactFirstName="ngModel"  [(ngModel)]="acquirer.contactFirstName"  class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+          <label>Contact Last Name </label>
+          <input [disabled]="isEdit" name="contactLastName" #contactLastName="ngModel" required  [(ngModel)]="acquirer.contactLastName" type="text" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="example-email">Contact Email </label>
+        <input [disabled]="isEdit" type="text" name="contactEmail" required #contactEmail="ngModel"  [(ngModel)]="acquirer.contactEmail"  class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+          <label>Escalation Email </label>
+          <input [disabled]="isEdit" name="escalationEmail" #escalationEmail="ngModel" required  [(ngModel)]="acquirer.escalationEmail" type="text" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="example-email">Escalation Phone Number </label>
+        <input [disabled]="isEdit" type="text" name="escalationPhoneNo" required #escalationPhoneNo="ngModel"  [(ngModel)]="acquirer.escalationPhoneNo"  class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+          <label>Address Line 1 </label>
+          <input [disabled]="isEdit" name="addressLine1" #addressLine1="ngModel" required  [(ngModel)]="acquirer.addressLine1" type="text" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="example-email">Address Line 2 </label>
+        <input [disabled]="isEdit" type="text" name="addressLine2" required #addressLine2="ngModel"  [(ngModel)]="acquirer.addressLine2"  class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+          <label>City </label>
+          <input [disabled]="isEdit" name="city" #city="ngModel" required  [(ngModel)]="acquirer.city" type="text" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="example-email">State</label>
+        <input [disabled]="isEdit" type="text" name="state" required #state="ngModel"  [(ngModel)]="acquirer.state"  class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+          <label>Latitude </label>
+          <input [disabled]="isEdit" name="lat" #lat="ngModel" required  [(ngModel)]="acquirer.lat" type="text" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="example-email">Longitude</label>
+        <input [disabled]="isEdit" type="text" name="state" required #state="ngModel"  [(ngModel)]="acquirer.state"  class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+          <label>Capacity </label>
+          <input [disabled]="isEdit" name="capacity" #capacity="ngModel" required  [(ngModel)]="acquirer.capacity" type="text" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <div class="form-check">
+          <input [disabled]="isEdit" type="checkbox" name="isBank" required #isBank="ngModel"  [(ngModel)]="acquirer.isBank" class="form-check-input">
+          <label class="form-check-label">IsBank</label>
+        </div>
+
+      </div>
+      <div class="form-group col-md-12">
+        <label>Description</label>
+        <textarea [disabled]="isEdit" class="form-control" rows="3" name="description" required #description="ngModel"  [(ngModel)]="acquirer.description" placeholder="Description..."></textarea>
+    </div>
+
+      <!-- <div class="form-group">
+          <label>Description</label>
+          <textarea [disabled]="isEdit" class="form-control" rows="3" name="description" required #description="ngModel"  [(ngModel)]="acquirer.description" placeholder="Description..."></textarea>
+      </div> -->
+  </form>
+  </div>
+
+  <div xmodal-footer class="dialog-modal-footer" style="width: 100%;">
+    <div class="d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn btn-outline-secondary float-left"
+        (click)="close()"
+      >
+       Cancel
+      </button>
+      <button
+      (click)="acquirerForm.ngSubmit.emit()"
+        type="button"
+        class="btn btn-outline-primary float-right ml-2"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</app-dialog-modal>

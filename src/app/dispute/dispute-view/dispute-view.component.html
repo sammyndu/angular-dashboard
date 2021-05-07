@@ -1,0 +1,17 @@
+<app-dialog-modal title="Dispute Details">
+  <div xmodal-body>
+    <app-dispute-view-item [title]="'ID'" [value]="dispute?.id"></app-dispute-view-item>
+
+    <app-dispute-view-item [title]="'Created By'" [value]="dispute?.createdBy"></app-dispute-view-item>
+
+    <app-dispute-view-item [title]="'Subject'" [value]="dispute?.description"></app-dispute-view-item>
+
+    <app-dispute-view-item [title]="'Receiver Account Number'" [value]="dispute?.receiverAccountNumber"></app-dispute-view-item>
+
+    <app-dispute-view-item [title]="'Reference Number'" [value]="dispute?.referenceNumber"></app-dispute-view-item>
+
+    <app-dispute-view-item [title]="'Dispute Owner Phone Number'" [value]="dispute?.senderPhoneNumber"></app-dispute-view-item>
+
+    <app-dispute-view-item [title]="'Status'" [value]="dispute?.disputeStatus?.status"></app-dispute-view-item>
+  </div>
+</app-dialog-modal>

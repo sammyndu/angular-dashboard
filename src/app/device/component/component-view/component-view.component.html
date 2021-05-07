@@ -1,0 +1,26 @@
+<app-dialog-modal title="Device Component Details" size="small">
+  <div xmodal-body>
+
+     <app-component-view-item
+     [leftTitle]="'Component Name'"
+     [leftValue]="component.componentName"
+     [rightTitle]="'Component Short Name'"
+     [rightValue]="component.shortName">
+    </app-component-view-item>
+
+    <app-component-view-item
+     [leftTitle]="'Component Manaufacturer'"
+     [leftValue]="component.manufacturer"
+     [rightTitle]="'Component Description'"
+     [rightValue]="component.description">
+    </app-component-view-item>
+
+    <app-component-view-item
+     [leftTitle]="'Component Date Created'"
+     [leftValue]="component.dateAdded"
+     [rightTitle]="'Component Date Modified'"
+     [rightValue]="component.dateModified">
+    </app-component-view-item>
+
+  </div>
+</app-dialog-modal>

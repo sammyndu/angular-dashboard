@@ -1,0 +1,75 @@
+<app-dialog-modal title="Acquirer Details" size="large">
+  <div xmodal-body>
+
+     <app-acquirer-view-item
+     [leftTitle]="'Acquirer Full Name'"
+     [leftValue]="acquirer.acquirerFullName"
+     [rightTitle]="'Acquirer Short Name'"
+     [rightValue]="acquirer.acquirerShortName">
+    </app-acquirer-view-item>
+
+    <app-acquirer-view-item
+     [leftTitle]="'Acquirer Code'"
+     [leftValue]="acquirer.acquirerCode"
+     [rightTitle]="'Email Surffix'"
+     [rightValue]="acquirer.emailSuffix">
+    </app-acquirer-view-item>
+
+    <app-acquirer-view-item
+     [leftTitle]="'Contact First Name'"
+     [leftValue]="acquirer.contactFirstName"
+     [rightTitle]="'Contact Last Name'"
+     [rightValue]="acquirer.contactLastName">
+    </app-acquirer-view-item>
+
+    <app-acquirer-view-item
+     [leftTitle]="'Contact Email'"
+     [leftValue]="acquirer.contactEmail"
+     [rightTitle]="'Escalation Email'"
+     [rightValue]="acquirer.escalationEmail">
+    </app-acquirer-view-item>
+
+    <app-acquirer-view-item
+     [leftTitle]="'Escalation Phone Number'"
+     [leftValue]="acquirer.escalationPhoneNo"
+     [rightTitle]="'Address Line 1'"
+     [rightValue]="acquirer.addressLine1">
+    </app-acquirer-view-item>
+
+    <app-acquirer-view-item
+     [leftTitle]="'Address Line 2'"
+     [leftValue]="acquirer.addressLine2"
+     [rightTitle]="'City'"
+     [rightValue]="acquirer.city">
+    </app-acquirer-view-item>
+
+    <app-acquirer-view-item
+     [leftTitle]="'State'"
+     [leftValue]="acquirer.state"
+     [rightTitle]="'Latitude'"
+     [rightValue]="acquirer.lat">
+    </app-acquirer-view-item>
+
+    <app-acquirer-view-item
+     [leftTitle]="'Longitude'"
+     [leftValue]="acquirer.long"
+     [rightTitle]="'Capacity'"
+     [rightValue]="acquirer.capacity">
+    </app-acquirer-view-item>
+
+    <app-acquirer-view-item
+    [leftTitle]="'Bank'"
+    [leftValue]="acquirer.isBank"
+    [rightTitle]="'Description'"
+    [rightValue]="acquirer.description">
+   </app-acquirer-view-item>
+
+   <app-acquirer-view-item
+    [leftTitle]="'Date Created'"
+    [leftValue]="acquirer.dateCreated"
+    [rightTitle]="'Date Modified'"
+    [rightValue]="acquirer.dateModified">
+   </app-acquirer-view-item>
+
+  </div>
+</app-dialog-modal>

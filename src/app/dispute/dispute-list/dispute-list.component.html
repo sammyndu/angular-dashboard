@@ -1,0 +1,129 @@
+<div class="container-fluid">
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Disputes</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item active">Dispute Management</li>
+        </ol>
+    </div>
+    <div class="col-md-7 align-self-center text-right d-none d-md-block">
+        <button (click)="openCreateModal()" type="button" class="btn btn-info"><i class="fa fa-plus-circle"></i> Create New</button>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Start Page Content -->
+  <!-- ============================================================== -->
+  <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Dispute List</h4>
+                <h6 class="card-subtitle">List of disputes opend by customers</h6>
+                <div class="row m-t-40">
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="card">
+                            <div class="box bg-info text-center">
+                                <h1 class="font-light text-white">2,064</h1>
+                                <h6 class="text-white">Total Disputes</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="card">
+                            <div class="box bg-primary text-center">
+                                <h1 class="font-light text-white">1,738</h1>
+                                <h6 class="text-white">Responded</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="card">
+                            <div class="box bg-success text-center">
+                                <h1 class="font-light text-white">1100</h1>
+                                <h6 class="text-white">Resolve</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                        <div class="card">
+                            <div class="box bg-dark text-center">
+                                <h1 class="font-light text-white">964</h1>
+                                <h6 class="text-white">Pending</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <div class="table-responsive">
+                    <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th>ID #</th>
+                                <th>Created By</th>
+                                <th>Subject</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                          <ng-container *ngIf="!isTableLoading">
+                            <tr *ngFor="let dispute of disputes">
+                              <td>{{ dispute['id']}}</td>
+                              <td>{{ dispute['createdBy'] }}</td>
+                              <td>{{ dispute['description'] }}</td>
+                              <td><span [ngClass]="getStatusClass(dispute.disputeStatus.status)">{{ dispute.disputeStatus.status }}</span></td>
+                              <td>{{ dispute['dateCreated'] }}</td>
+                              <td>
+                                <a tooltip="Edit" (click)="openEditModal(dispute.id)"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                <a tooltip="View" (click)="openDetailModal(dispute.id)"> <i class="fas fa-eye text-info m-r-10"></i></a>
+                              <a tooltip="Delete"> <i class="fa fa-close text-danger"></i> </a>
+
+                              </td>
+                          </tr>
+                          </ng-container>
+
+                            <tr [hidden]="!isTableLoading">
+                              <td><ngx-skeleton-loader appearance=""></ngx-skeleton-loader></td>
+                              <td> <ngx-skeleton-loader appearance=""></ngx-skeleton-loader> </td>
+                              <td>
+                                <ngx-skeleton-loader appearance=""></ngx-skeleton-loader>
+                              </td>
+                              <td>
+                                <ngx-skeleton-loader appearance=""></ngx-skeleton-loader>
+                              </td>
+                              <td>
+                                <ngx-skeleton-loader appearance=""></ngx-skeleton-loader>
+                              </td>
+                              <td>
+                                <a>
+                                  <ngx-skeleton-loader appearance="circle" [theme]="{ height: '10px', width: '10px'} "></ngx-skeleton-loader>
+                                </a>
+                                <a></a>
+                              <a>
+                                <ngx-skeleton-loader appearance="circle" [theme]="{ height: '10px', width: '10px'} "></ngx-skeleton-loader>
+                              </a>
+
+                              </td>
+                          </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+<app-dispute-view></app-dispute-view>
+<app-dispute-create-edit></app-dispute-create-edit>

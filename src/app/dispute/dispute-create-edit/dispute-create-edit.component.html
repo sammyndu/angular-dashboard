@@ -1,0 +1,56 @@
+<app-dialog-modal title="Create Dispute">
+  <div xmodal-body>
+
+    <form class=" m-t-10" #disputeForm="ngForm" (ngSubmit)="save()">
+      <div class="form-group">
+          <label>Reference Number </label>
+          <input [disabled]="isEdit" type="text" name="referenceNumber" required #referenceNumber="ngModel" [(ngModel)]="dispute.referenceNumber" class="form-control form-control-line" >
+      </div>
+      <div class="form-group">
+          <label for="example-email">Receiver Account Number </label>
+          <input [disabled]="isEdit" type="text" name="receiverAccountNumber" required #receiverAccountNumber="ngModel"  [(ngModel)]="dispute.receiverAccountNumber" id="example-email2" name="example-email" class="form-control">
+      </div>
+      <div class="form-group">
+          <label>Sender Phone Number</label>
+          <input [disabled]="isEdit" name="senderPhoneNumber" #senderPhoneNumber="ngModel" required  [(ngModel)]="dispute.senderPhoneNumber" type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+          <label>Text area</label>
+          <textarea [disabled]="isEdit" class="form-control" rows="3" name="description" required #description="ngModel"  [(ngModel)]="dispute.description" placeholder="Description..."></textarea>
+      </div>
+      <div class="form-group" *ngIf="isEdit">
+        <label>Dispute Status</label>
+        <select [hidden]="!isEdit" class="form-control" name="disputeStatusId" required #disputeStatusId="ngModel"  [(ngModel)]="dispute.disputeStatusId">
+            <option *ngFor="let item of disputeStatus" [value]="item.id"> {{ item.status }}</option>
+        </select>
+    </div>
+      <div class="form-group">
+          <label>Dispute Type</label>
+          <select [disabled]="isEdit" class="form-control" name="disputeTypeId" required #disputeTypeId="ngModel"  [(ngModel)]="dispute.disputeTypeId">
+              <option *ngFor="let disputeType of disputeTypes" [value]="disputeType.id"> {{ disputeType.dispute }}</option>
+          </select>
+      </div>
+
+  </form>
+  </div>
+
+  <div xmodal-footer class="dialog-modal-footer" style="width: 100%;">
+    <div class="d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn btn-outline-secondary float-left"
+        (click)="close()"
+      >
+       Cancel
+      </button>
+      <button
+      (click)="disputeForm.ngSubmit.emit()"
+        type="button"
+        class="btn btn-outline-primary float-right ml-2"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</app-dialog-modal>

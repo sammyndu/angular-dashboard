@@ -1,0 +1,209 @@
+<div class="container-fluid">
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="row page-titles">
+      <div class="col-md-5 align-self-center">
+          <h3 class="text-themecolor">Create Terminal</h3>
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">Terminal</a></li>
+              <li class="breadcrumb-item active">Create Terminal</li>
+          </ol>
+      </div>
+  </div>
+
+   <!-- Validation wizard -->
+  <div class="row" id="validation">
+    <div class="col-12">
+        <div class="card wizard-content">
+            <div class="card-body">
+                <h4 class="card-title">Terminal Profile</h4>
+                <h6 class="card-subtitle">Set up terminal using from below</h6>
+                <form action="#" class="validation-wizard wizard-circle">
+                    <!-- Step 1 -->
+                    <h6>Terminal profile</h6>
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="terminalName"> Terminal Name : <span class="text-danger">*</span> </label>
+                                    <input type="text" name="terminalName" #terminalName="ngModel" [(ngModel)]="terminal.terminalName" class="form-control required" id="terminalName" name="terminalName">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="terminalRef"> Terminal Ref : <span class="text-danger">*</span> </label>
+                                    <input type="text" name="terminalRef" #terminalRef="ngModel" [(ngModel)]="terminal.terminalRef" class="form-control required" id="terminalRef" name="terminalRef"> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="terminalAlias"> Terminal Alias : <span class="text-danger">*</span> </label>
+                                    <input type="text" name="terminalAlias" #terminalAlias="ngModel" [(ngModel)]="terminal.terminalAlias" class="form-control required" id="terminalAlias" name="terminalAlias"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="terminalIpAddress">Terminal Ip Address :</label>
+                                    <input type="tel" name="terminalIpAddress" #terminalIpAddress="ngModel" [(ngModel)]="terminal.ipAddress" class="form-control" id="terminalIpAddress"> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label for="terminalPort"> Terminal Port : <span class="text-danger">*</span> </label>
+                                  <input type="text" name="terminalPort"terminalPort="ngModel" [(ngModel)]="terminal.portNumber" class="form-control required" id="terminalPort" name="terminalPort"> </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label for="currencyCode">Currency Code :</label>
+                                  <input type="tel" name="currencyCode" #currencyCode="ngModel" [(ngModel)]="terminal.currencyCode" class="form-control" id="currencyCode"> </div>
+                          </div>
+                      </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="installationStatus">Installation Status: <span class="text-danger">*</span> </label>
+                                    <select class="custom-select form-control required" name="installationStatus" #installationStatus [(ngModel)]="terminal.installationStatusId"  id="installationStatus" name="location">
+                                        <option disabled value="">Select Status</option>
+                                        <option *ngFor="let item of installationStatusList; trackBy:trackInstallationStatus" [value]="item.id">{{ item.status }}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="description">Description :</label>
+                                <textarea name="description" name="description" #description="ngModel" [(ngModel)]="terminal.description"  id="description" rows="3" class="form-control"></textarea>
+                              </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Step 2 -->
+                    <h6>Components</h6>
+                    <section>
+                        <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label for="serialNumber">Serial Number :</label>
+                                  <input type="text" name="serialNumber" #serialNumber="ngModel" [(ngModel)]="terminal.serialNumber" class="form-control required" id="serialNumber">
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="deviceType">Device Type: <span class="text-danger">*</span> </label>
+                                <select class="custom-select form-control required" name="deviceType" #deviceType="ngModel" [(ngModel)]="terminal.deviceType" id="deviceType" name="deviceType">
+                                  <option disabled value="">Select Device Type</option>
+                                  <option *ngFor="let item of formInfo.deviceTypes" [value]="item.id">{{ item.type }}</option>
+                                </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label for="machineVersion">Machine Version :</label>
+                                  <input type="text" name="machineVersion" #machineVersion="ngModel" [(ngModel)]="terminal.version" class="form-control" id="machineVersion">
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="vaultType">Vault Type: <span class="text-danger">*</span> </label>
+                                <select class="custom-select form-control required" name="vaultType" #vaultType="ngModel" [(ngModel)]="terminal.vaultTypeId" id="vaultType" name="vaultType">
+                                  <option disabled value="">Select Vault Type</option>
+                                  <option *ngFor="let item of formInfo.vaultTypes" [value]="item.id">{{ item.title }}</option>
+                                </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="deviceModel">Device Model: <span class="text-danger">*</span> </label>
+                                <select class="custom-select form-control required" name="deviceModel" #deviceModel="ngModel" [(ngModel)]="terminal.deviceModelId" id="deviceModel" name="deviceModel">
+                                  <option disabled value="">Select Device Model</option>
+                                  <option *ngFor="let item of formInfo.deviceModels" [value]="item.id">{{ item.deviceName }}</option>
+                                </select>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label for="appVersion">App Version :</label>
+                                  <input type="text" class="form-control" name="appVersion" #appVersion="ngModel" [(ngModel)]="terminal.appVersion" id="appVersion">
+                              </div>
+                          </div>
+                        </div>
+                    </section>
+                    <!-- Step 3 -->
+                    <h6>Configurations</h6>
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="cim" >
+                                  <label class="form-check-label" for="cim">
+                                    CIM
+                                  </label>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="printer" >
+                                  <label class="form-check-label" for="printer">
+                                    Printer
+                                  </label>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="idc" >
+                                  <label class="form-check-label" for="idc">
+                                    IDC
+                                  </label>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="epp" >
+                                  <label class="form-check-label" for="epp">
+                                    EPP
+                                  </label>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="modeulKey" >
+                                  <label class="form-check-label" for="moduleKey">
+                                    Module Key
+                                  </label>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="vault" >
+                                  <label class="form-check-label" for="vault">
+                                    Vault
+                                  </label>
+                                </div>
+                              </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+

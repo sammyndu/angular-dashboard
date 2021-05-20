@@ -16,7 +16,7 @@
       </div>
 
       <div class="form-group col-md-12">
-        <label>Device Manufacturer</label>
+        <label>Device Type</label>
         <select name="deviceType" #deviceType="ngModel" required [(ngModel)]="model.deviceTypeId" class="form-control">
           <option *ngFor="let type of types" [value]="type.id">{{ type.type }}</option>
         </select>

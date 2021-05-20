@@ -19,7 +19,9 @@ export class AuthService {
     return this.http.post(`${environment.apiUrl}/account/login`, loginModel).pipe(
       catchError((err : any) => {
         console.log(err);
-        this.toastService.showError(err.error.title || err.error, "Error");
+        if(err.status !== 401 && err.status !== 0) {
+          this.toastService.showError(err.error.title || err.error, "Error");
+        }
         return throwError(err);
       }));
   }

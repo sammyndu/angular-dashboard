@@ -5,6 +5,7 @@ export class Terminal {
     public id: number = 0;
     public currencyCode: string = "";
     public serialNumber: string = "";
+    public installationStatusId!: number
     public version: string = "";
     public settlementTime: string = "";
     public owner: string = "";
@@ -16,6 +17,9 @@ export class Terminal {
     public modifiedBy: string = "";
     public enabled: boolean =  false;
     public bank: string = "";
+    public deviceType!: number;
+    public deviceModelId!: number;
+    public vaultTypeId!: number;
     public terminalRef: string = "";
     public terminalName: string = "";
     public terminalAlias: string = "";

@@ -40,6 +40,13 @@ export class TokenInterceptor implements HttpInterceptor {
               );
               this.auth.redirectToLogin();
             }
+
+            if (err.status === 0) {
+              this._toastService.showError(
+                'Server Down.'
+              );
+              //this.auth.redirectToLogin();
+            }
           }
         }
       )

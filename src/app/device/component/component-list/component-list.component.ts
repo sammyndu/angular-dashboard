@@ -29,7 +29,7 @@ export class ComponentListComponent implements OnInit {
   getComponents() {
     this.componentService.getComponents().subscribe(result => {
       console.log(result);
-      this.components = result
+      this.components = result.data
       this.dtTrigger.next();
     })
   }

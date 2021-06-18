@@ -16,7 +16,7 @@ export class DisputeService {
   constructor(private http: HttpClient) { }
 
   getDisputes() {
-    return this.http.get<Dispute[]>(`${this.apiUrl}/list`)
+    return this.http.get<ResponseInfo>(`${this.apiUrl}/list`)
   }
 
   getDispute(id: number) {
@@ -24,11 +24,11 @@ export class DisputeService {
   }
 
   getDisputeTypes() {
-    return this.http.get<DisputeType[]>(`${this.apiUrl}/getTypes`)
+    return this.http.get<ResponseInfo>(`${this.apiUrl}/getTypes`)
   }
 
   getDisputeStatus() {
-    return this.http.get<DisputeStatus[]>(`${this.apiUrl}/getStatus`)
+    return this.http.get<ResponseInfo>(`${this.apiUrl}/getStatus`)
   }
 
   editDispute(dispute: Dispute) {

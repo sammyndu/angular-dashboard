@@ -42,7 +42,7 @@ export class AcquirerCreateEditComponent implements OnInit {
       else if(modal.modalType == ModalType.AcquirerEdit ) {
         this.title = "Edit Acquirer";
         this.acquirerSevice.getAcquirer(modal.content).subscribe((result) => {
-          this.acquirer = result;
+          this.acquirer = result.data;
           this.modal.show();
         })
       }

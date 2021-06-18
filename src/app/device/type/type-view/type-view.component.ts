@@ -28,7 +28,7 @@ export class TypeViewComponent implements OnInit {
       if(modal.modalType == ModalType.DeviceTypeDetail) {
         this.typeService.getType(modal.content).subscribe(result => {
           console.log(result)
-          this.type = result
+          this.type = result.data
           this.modal.show()
         })
       }

@@ -28,7 +28,7 @@ export class ComponentViewComponent implements OnInit {
       if(modal.modalType == ModalType.DeviceComponentDetail) {
         this.componentService.getComponent(modal.content).subscribe(result => {
           console.log(result)
-          this.component = result
+          this.component = result.data
           this.modal.show()
         })
       }

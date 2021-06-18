@@ -15,10 +15,10 @@ export class TerminalService {
   constructor(private http: HttpClient) { }
 
   getTerminals() {
-    return this.http.get<any>(`${this.apiUrl}/list`);
+    return this.http.get<ResponseInfo>(`${this.apiUrl}/list`);
   }
 
   getAddFormInfo() {
-    return this.http.get<TerminalAddFormInfo>(`${this.apiUrl}/forminfo`);
+    return this.http.get<ResponseInfo>(`${this.apiUrl}/forminfo`);
   }
 }

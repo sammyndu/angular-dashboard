@@ -36,13 +36,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let permission of audits">
-                              <td>{{ permission['userName'] }}</td>
-                              <td>{{ permission['ipAddress'] }}</td>
-                              <td>{{ permission['narration'] }}</td>
-                              <td>{{ permission['controller'] }}</td>
-                              <td>{{ permission['action'] }}</td>
-                              <td>{{ permission['accessTime'] }}</td>
+                            <tr *ngFor="let audit of audits">
+                              <td>{{ audit['userName'] }}</td>
+                              <td>{{ audit['ipAddress'] }}</td>
+                              <td>{{ audit['narration'] }}</td>
+                              <td>{{ audit['controller'] }}</td>
+                              <td>{{ audit['action'] }}</td>
+                              <td>{{ audit['accessTime'] }}</td>
                             </tr>
                         </tbody>
                     </table>

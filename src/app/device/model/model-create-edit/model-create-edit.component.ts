@@ -33,7 +33,7 @@ export class ModelCreateEditComponent implements OnInit {
   ngOnInit(): void {
 
     this.typeService.getTypes().subscribe(result => {
-      this.types = result;
+      this.types = result.data;
     })
 
     this.modalEventSubscription = this.modalService.message.subscribe(modalDialog => {
@@ -44,7 +44,7 @@ export class ModelCreateEditComponent implements OnInit {
           this.title = "Edit Model";
           this.modelService.getModel(modalDialog.content).subscribe(result => {
             console.log(result);
-            this.model = result;
+            this.model = result.data;
           })
         }
         this.modal.show();

@@ -32,7 +32,7 @@ export class TypeListComponent implements OnInit {
   getTypes() {
     this.typeService.getTypes().subscribe(result => {
       console.log(result);
-      this.types = result;
+      this.types = result.data;
       this.dtTrigger.next();
     })
   }

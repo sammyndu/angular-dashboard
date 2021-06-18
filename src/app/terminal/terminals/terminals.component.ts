@@ -24,7 +24,7 @@ export class TerminalsComponent implements OnInit {
   getTerminals() {
     this.terminalService.getTerminals().subscribe((result) => {
       console.log(result);
-      this.terminals = result;
+      this.terminals = result.data;
       this.dtTrigger.next();
     })
   }

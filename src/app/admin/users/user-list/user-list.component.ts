@@ -23,7 +23,8 @@ export class UserListComponent implements OnInit {
   getUsers() {
     this.userService.getUsers().subscribe((result) => {
       console.log(result);
-      this.users = result;
+      const users = result.data
+      this.users = [...users];
       this.dtTrigger.next();
     })
   }

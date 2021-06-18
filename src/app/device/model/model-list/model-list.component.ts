@@ -32,7 +32,7 @@ export class ModelListComponent implements OnInit {
   getModels() {
     this.modelService.getModels().subscribe(result => {
       console.log(result);
-      this.models = result;
+      this.models = result.data;
       this.dtTrigger.next()
     })
   }

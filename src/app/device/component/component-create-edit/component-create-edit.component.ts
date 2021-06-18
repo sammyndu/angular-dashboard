@@ -40,7 +40,7 @@ export class ComponentCreateEditComponent implements OnInit {
           this.title = "Edit Component";
           this.componentService.getComponent(modalDialog.content).subscribe(result => {
             console.log(result);
-            this.component = result;
+            this.component = result.data;
           })
         }
         this.modal.show();

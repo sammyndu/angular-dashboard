@@ -70,13 +70,13 @@ export class TerminalCreateComponent implements OnInit {
 
   getFormInfo() {
     this.terminalService.getAddFormInfo().subscribe(result => {
-      this.formInfo = result;
-      this.formInfo.deviceModels = [...result.deviceModels]
-      this.formInfo.deviceTypes = [...result.deviceTypes]
-      this.installationStatusList = [...result.installationStatus]
-      this.formInfo.vaultTypes = [...result.vaultTypes]
+      this.formInfo = result.data;
+      this.formInfo.deviceModels = [...result.data.deviceModels]
+      this.formInfo.deviceTypes = [...result.data.deviceTypes]
+      this.installationStatusList = [...result.data.installationStatus]
+      this.formInfo.vaultTypes = [...result.data.vaultTypes]
       //this.cdr.detectChanges();
-      console.log(result.installationStatus);
+      console.log(result.data.installationStatus);
       this.bootstrapMultiStepForm();
     })
   }

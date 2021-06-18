@@ -24,7 +24,7 @@ export class AuditListComponent implements OnInit {
   getAudits() {
     this.adminService.getAudits().subscribe(result => {
       console.log(result);
-      this.audits = result;
+      this.audits = result.data;
       this.dtTrigger.next();
     })
   }

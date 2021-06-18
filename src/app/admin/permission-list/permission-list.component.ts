@@ -25,7 +25,7 @@ export class PermissionListComponent implements OnInit {
   getPermissions() {
     this.permissionService.getPermissions().subscribe(result => {
       console.log(result);
-      this.permissions = result;
+      this.permissions = result.data;
       this.dtTrigger.next();
     })
   }

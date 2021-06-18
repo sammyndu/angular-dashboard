@@ -27,7 +27,7 @@ export class ModelViewComponent implements OnInit {
       if(modal.modalType == ModalType.DeviceModelDetail) {
         this.modelService.getModel(modal.content).subscribe(result => {
           console.log(result)
-          this.model = result
+          this.model = result.data
           this.modal.show()
         })
       }

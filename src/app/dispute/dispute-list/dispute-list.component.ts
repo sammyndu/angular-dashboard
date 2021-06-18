@@ -39,7 +39,7 @@ export class DisputeListComponent implements OnInit, OnDestroy {
     this.disputeService.getDisputes().subscribe(result => {
       this.isTableLoading = false;
       console.log(result);
-      this.disputes = result;
+      this.disputes = result.data;
       this.dtTrigger.next()
     })
   }
@@ -79,7 +79,7 @@ export class DisputeListComponent implements OnInit, OnDestroy {
       this.disputeService.getDisputes().subscribe(result => {
         this.isTableLoading = false;
         console.log(result);
-        this.disputes = result;
+        this.disputes = result.data;
         this.rerender()
       })
     })

@@ -30,7 +30,7 @@ export class AcquirerViewComponent implements OnInit {
       console.log('entered')
       if(modal.modalType == ModalType.AcquirerDetail) {
         this.acquirerService.getAcquirer(modal.content).subscribe(result => {
-          this.acquirer = result;
+          this.acquirer = result.data;
           this.modal.show();
         })
       }

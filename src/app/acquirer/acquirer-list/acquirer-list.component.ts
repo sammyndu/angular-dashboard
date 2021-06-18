@@ -30,7 +30,7 @@ export class AcquirerListComponent implements OnInit {
   getAcquirer() {
     this.acquirerSevice.getAcquirers().subscribe(result => {
       console.log(result);
-      this.acquirers = result;
+      this.acquirers = result.data;
       this.dtTrigger.next();
     })
   }

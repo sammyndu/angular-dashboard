@@ -13,7 +13,7 @@ export class PermisssionService {
   constructor(private http: HttpClient) { }
 
   getPermissions() {
-    return this.http.get<any>(`${this.apiUrl}/list`);
+    return this.http.get<ResponseInfo>(`${this.apiUrl}/list`);
   }
 
   importPermissions() {

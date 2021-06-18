@@ -37,7 +37,7 @@ export class TypeCreateEditComponent implements OnInit {
           this.title = "Edit Type";
           this.typeService.getType(modalDialog.content).subscribe(result => {
             console.log(result);
-            this.deviceType = result;
+            this.deviceType = result.data;
           })
         }
         this.modal.show();

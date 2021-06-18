@@ -39,7 +39,7 @@ export class DisputeCreateEditComponent implements OnInit, OnDestroy {
       this.isEdit = false;
       if(modal.modalType == ModalType.DisputeCreate || modal.modalType == ModalType.DisputeEdit) {
         this.disputeService.getDisputeTypes().subscribe(result => {
-          this.disputeTypes = result;
+          this.disputeTypes = result.data;
         })
         if(modal.content != null) {
           this.isEdit = true;
@@ -49,7 +49,7 @@ export class DisputeCreateEditComponent implements OnInit, OnDestroy {
           })
 
           this.disputeService.getDisputeStatus().subscribe(result => {
-            this.disputeStatus = result;
+            this.disputeStatus = result.data;
           })
         }
         this.formType = modal.modalType;

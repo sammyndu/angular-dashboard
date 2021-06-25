@@ -34,12 +34,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let user of roles">
-                              <td>{{ user['name'] }}</td>
-                              <td>{{ user['description'] }}</td>
-                              <td>{{ user['createdBy'] }}</td>
+                            <tr *ngFor="let role of roles">
+                              <td>{{ role.name }}</td>
+                              <td>{{role.description }}</td>
+                              <td>{{ role.createdBy }}</td>
                               <td>
-                                <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                <a [routerLink]="['edit/', role.id]" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
                                 <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
                               </td>
                             </tr>

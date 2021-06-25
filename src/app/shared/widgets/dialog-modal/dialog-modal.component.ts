@@ -35,7 +35,6 @@ export class DialogModalComponent implements OnInit, OnDestroy {
 
   close(): void {
     this.modal.hide();
-    this.modalService.closeModal();
   }
 
   ngOnDestroy(): void {

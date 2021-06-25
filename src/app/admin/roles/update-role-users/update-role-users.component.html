@@ -1,0 +1,46 @@
+<app-dialog-modal [title]="title" size="large">
+  <div xmodal-body>
+
+    <form class=" m-t-10 row" #userForm="ngForm" (ngSubmit)="save()">
+      <div class="col-12">
+        <h5 class="box-title">Update users associated with this role</h5>
+      </div>
+
+      <div class="col-12">
+
+        <ng-multiselect-dropdown
+        name = "users"
+        [placeholder]="'users'"
+        [settings]="dropdownSettings"
+        [data]="dropdownList"
+        [(ngModel)]="selectedItems"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+      >
+      </ng-multiselect-dropdown>
+      </div>
+
+  </form>
+  </div>
+
+  <div xmodal-footer class="dialog-modal-footer" style="width: 100%;">
+    <div class="d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn btn-outline-secondary float-left"
+        (click)="close()"
+      >
+       Cancel
+      </button>
+      <button
+      [disabled]="isLoading"
+      (click)="userForm.ngSubmit.emit()"
+        type="button"
+        class="btn btn-outline-primary float-right ml-2"
+      >
+      <i *ngIf="isLoading"  class="fas fa-spinner fa-spin" ></i>
+        Save
+      </button>
+    </div>
+  </div>
+</app-dialog-modal>

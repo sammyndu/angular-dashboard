@@ -61,7 +61,7 @@ export class AcquirerCreateEditComponent implements OnInit {
           })
         }
 
-      } else if (this.formType == ModalType.DisputeEdit) {
+      } else if (this.formType == ModalType.AcquirerEdit) {
         this.acquirerSevice.editAcquirer(this.acquirer).subscribe(result => {
           console.log(result);
           this.close();

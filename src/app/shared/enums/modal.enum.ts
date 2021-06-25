@@ -13,5 +13,9 @@ export enum ModalType {
   DeviceModelEdit,
   DeviceTypeCreate,
   DeviceTypeEdit,
-  DeviceTypeDetail
+  DeviceTypeDetail,
+  UserCreate,
+  UserEdit,
+  UserDetail,
+  UpdateRoleUsers
 }

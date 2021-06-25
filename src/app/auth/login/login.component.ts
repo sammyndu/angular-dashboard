@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.sessionService.setToken(response.token);
       this.sessionService.setEmail(response.email);
       if(this.sessionService.isAuthenticated()) {
-        this.router.navigate(['']).then(() => window.location.reload());
+        window.location.href = "";
       }
     }, (err: any) => {
       //this.toastService.showError(err,  "Error");

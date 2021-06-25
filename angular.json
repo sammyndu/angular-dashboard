@@ -28,37 +28,37 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/css/bootstrap.min.css",
-              "node_modules/bootstrap-select/bootstrap-select.min.css",
-              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-              "node_modules/morrisjs/morris.css",
-              "node_modules/c3-master/c3.min.css",
+              "src/assets/js/node_modules/bootstrap/css/bootstrap.min.css",
+              "src/assets/js/node_modules/bootstrap-select/bootstrap-select.min.css",
+              "src/assets/js/node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "src/assets/js/node_modules/morrisjs/morris.css",
+              "src/assets/js/node_modules/c3-master/c3.min.css",
               "src/styles.css",
               "src/assets/css/style.css",
               "src/assets/css/pages/dashboard1.css",
               "src/assets/css/colors/default.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/wizard/steps.css"
+              "src/assets/js/node_modules/wizard/steps.css"
             ],
             "scripts": [
-              "node_modules/jquery/jquery.min.js",
-              "node_modules/moment/min/moment.min.js",
-              "node_modules/wizard/modified-jquery.steps.js",
-              "node_modules/wizard/jquery.validate.min.js",
-              "node_modules/wizard/steps.js",
+              "src/assets/js/node_modules/jquery/jquery.min.js",
+              "src/assets/js/node_modules/moment/min/moment.min.js",
+              "src/assets/js/node_modules/wizard/modified-jquery.steps.js",
+              "src/assets/js/node_modules/wizard/jquery.validate.min.js",
+              "src/assets/js/node_modules/wizard/steps.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
-              "node_modules/bootstrap/js/popper.min.js",
-              "node_modules/bootstrap/js/bootstrap.min.js",
+              "src/assets/js/node_modules/bootstrap/js/popper.min.js",
+              "src/assets/js/node_modules/bootstrap/js/bootstrap.min.js",
 
-              "node_modules/bootstrap-select/bootstrap-select.min.js",
-              "node_modules/ps/perfect-scrollbar.jquery.min.js",
+              "src/assets/js/node_modules/bootstrap-select/bootstrap-select.min.js",
+              "src/assets/js/node_modules/ps/perfect-scrollbar.jquery.min.js",
               "src/assets/js/waves.js",
               "src/assets/js/sidebarmenu.js",
               "src/assets/js/custom.min.js",
-              "node_modules/d3/d3.min.js",
-              "node_modules/c3-master/c3.min.js",
-              "node_modules/raphael/raphael-min.js"
+              "src/assets/js/node_modules/d3/d3.min.js",
+              "src/assets/js/node_modules/c3-master/c3.min.js",
+              "src/assets/js/node_modules/raphael/raphael-min.js"
             ]
           },
           "configurations": {

@@ -18,8 +18,8 @@ export class ModalService {
     this.message.next(modal);
   }
 
-  closeModal() {
-    this.closed.next();
+  closeModal(modal: Modal) {
+    this.closed.next(modal);
   }
 
 }

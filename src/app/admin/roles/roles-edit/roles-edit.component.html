@@ -1,0 +1,120 @@
+<div class="container-fluid">
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h3 class="text-themecolor">Roles</h3>
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+          <li class="breadcrumb-item"><a href="javascript:void(0)">Role</a></li>
+          <li class="breadcrumb-item active">Edit Role</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Column -->
+    <div class="col-md-12">
+      <div class="card">
+          <div class="card-body p-b-0">
+              <h4 class="card-title">Change Role Settings</h4>
+          </div>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs customtab" role="tablist">
+              <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home2" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Edit Role</span></a> </li>
+              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile2" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Associated Users</span></a> </li>
+              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages2" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Role Permissions</span></a> </li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+              <div class="tab-pane active" id="home2" role="tabpanel">
+                  <div class="p-20">
+                    <form class=" m-t-10 row" #editRoleForm="ngForm" (ngSubmit)="updateRole()">
+                      <div class="form-group col-md-12">
+                          <label>Role Name </label>
+                          <input type="text" name="firstName" required #firstName="ngModel" [(ngModel)]="role.name" class="form-control form-control-line" >
+                      </div>
+
+                      <div class="form-group col-md-12">
+                          <label>Description</label>
+                          <textarea class="form-control" rows="3" name="description" required #description="ngModel"  [(ngModel)]="role.description" placeholder="Description..."></textarea>
+                      </div>
+
+                      <button
+                        [disabled]="isLoading"
+                        (click)="editRoleForm.ngSubmit.emit()"
+                          type="button"
+                          class="btn btn-outline-primary float-right ml-2"
+                        >
+                        <i *ngIf="isLoading"  class="fas fa-spinner fa-spin" ></i>
+                          Save
+                      </button>
+                  </form>
+                  </div>
+              </div>
+              <div class="tab-pane  p-20" id="profile2" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-5">
+
+                  </div>
+                  <div class="col-md-7 align-self-center text-right d-none d-md-block">
+                    <button (click)="openModal()" type="button" class="btn btn-info"><i class="fa fa-plus-circle"></i> Update Role Users</button>
+                  </div>
+                </div>
+                <div class="table-responsive m-t-20 no-wrap">
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1" class="table table-bordered table-striped">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let user of associatedUsers">
+                            <td>{{ user.email }}</td>
+                            <td>
+                              <a (click)="deleteUserFromRole(user.id)" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-close text-danger"></i> </a>
+                            </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane p-20" id="messages2" role="tabpanel">
+                <div class="row">
+                  <div class="col-md-5">
+
+                  </div>
+                  <div class="col-md-7 align-self-center text-right d-none d-md-block">
+                    <button type="button" class="btn btn-info"><i class="fa fa-plus-circle"></i> Update Role Permissions</button>
+                  </div>
+                </div>
+                <div class="table-responsive m-t-20 no-wrap">
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1" class="table table-bordered table-striped">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let permission of associatedPermissions">
+                            <td>{{ permission.name }}</td>
+                            <td>
+                              <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-close text-danger"></i> </a>
+                            </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+    <!-- Column -->
+
+  </div>
+
+</div>
+
+<app-update-role-users></app-update-role-users>
